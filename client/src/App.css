@@ -1,0 +1,100 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.App-header h1 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.App-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.App-main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.App-footer {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.scan-section {
+  margin-top: 2rem;
+}
+
+.mode-selector {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.mode-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.mode-btn:hover {
+  background-color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.mode-btn.active {
+  background-color: #667eea;
+  color: white;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: 1px solid #f5c6cb;
+}
+
+@media (max-width: 768px) {
+  .App-header h1 {
+    font-size: 2rem;
+  }
+
+  .App-main {
+    padding: 1rem;
+  }
+
+  .mode-selector {
+    flex-direction: column;
+  }
+
+  .mode-btn {
+    width: 100%;
+  }
+}
