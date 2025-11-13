@@ -2,10 +2,18 @@ const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
+const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Rate limiting for API routes
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per windowMs
+  message: 'Too many requests from this IP, please try again later.'
+});
 
 // Middleware
 app.use(cors());
@@ -23,7 +31,7 @@ const upload = multer({
 const analyzeRoutes = require('./routes/analyze');
 
 // Routes
-app.use('/api/analyze', analyzeRoutes);
+app.use('/api/analyze', apiLimiter, analyzeRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
